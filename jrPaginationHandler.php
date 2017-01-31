@@ -1,9 +1,9 @@
 <?php
 error_reporting(0);
-$host='localhost';                  //database host name
-$user='root';                       //user
+$host='';                  //database host name
+$user='';                       //user
 $password='';                       //password
-$dbname='note_record';              //database name
+$dbname='';              //database name
 
 $link=  mysqli_connect($host,$user,$password,$dbname);
 
@@ -16,13 +16,17 @@ if(mysqli_connect_errno()){
         $tableName=$_POST['dbTableName'];
         $result=mysqli_query($link, "SELECT * FROM `$tableName`");
         if(mysqli_errno($link)){
-            $arr=['error'=>mysqli_error($link)];
+            $arr=['error' => mysqli_error($link)];
+            
         }else{
             $result2= mysqli_query($link, "select `COLUMN_NAME` from `INFORMATION_SCHEMA`.`COLUMNS` where `TABLE_SCHEMA`='$dbname' and `TABLE_NAME`='$tableName'");
             if(mysqli_errno($link)){
-                $arr=['error'=>mysqli_error($link)];
+                $arr=['error' => mysqli_error($link)];
             } else {
-                $arr=['rowNum'=>mysqli_num_rows($result),'columns'=> mysqli_fetch_all($result2)];    
+                while($row= mysqli_fetch_row($result2)){
+                    $rows[]= $row[0];
+                }
+                $arr=['rowNum' => mysqli_num_rows($result), 'columns' => $rows ];    
             }
         }
         echo json_encode($arr);
@@ -34,8 +38,10 @@ if(mysqli_connect_errno()){
         if(mysqli_errno($link)){
             $arr=['error'=>mysqli_error($link)];
         }else{
-            $arr= mysqli_fetch_all($result, MYSQLI_ASSOC);
+            while($rows=mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                $arr[]= $rows;
+            }
         }
         echo json_encode($arr);
     }
-}
+    
