@@ -3,6 +3,11 @@ It is a very simple and effective utility build in jQuery &amp; PHP to implement
 Introduction
 A simple jQuery plugin to paginate the large HTML table that you can specify the number of rows, custom table head and can select columns to show per page. It is compatible with the set of PHP and MySQLi database server.
 
+for complete article on how to use, visit:
+https://www.codeproject.com/Tips/1168156/jrPaginator-HTML-Table-Pagination-Plugin-with-jQue
+or
+http://sybero.in/jrpaginator
+
 #Using the plugin
 
 1. Download jrPaginator plugin. 
