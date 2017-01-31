@@ -110,14 +110,17 @@ Visit http://sybero.in/jrpaginator to see the live demo of jrPaginator.
 #More Tips
 The design of buttons can be customised using below classes:
 
-    jr-top-btn
 To edit the numbered buttons
 
-    jr-scroll-btn-left & jr-scroll-btn-left
+    jr-top-btn
+
 To edit the left and right buttons
 
-    jr-focus
+    jr-scroll-btn-left & jr-scroll-btn-left
+
 To edit the current page button
+
+    jr-focus
 
 If you have variable table names for database table (Ex: each user has different table name for the activity log), you can edit jrPaginationHandler.php .
 
