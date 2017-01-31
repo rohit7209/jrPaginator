@@ -10,6 +10,7 @@ A simple jQuery plugin to paginate the large HTML table that you can specify the
 3. Edit jrPaginationHandler.php (set the database details) and place it at your preferred location. 
 4. Initialise the jrPaginate for the table you want to paginate as below:
 
+
 $(document).ready(function(){
     $('#yourTableId').jrPaginate({
         dbTableName: 'yourDbTableName',
@@ -19,6 +20,7 @@ $(document).ready(function(){
 });
 
     Example:
+
 
 $(document).ready(function(){
     $('#contact-list').jrPaginate({
@@ -34,27 +36,42 @@ $(document).ready(function(){
 Name of the mysql database table.
 Ex: 
 dbTableName: 'contact_list'
-#filePath     Compulsory
+#filePath     (Compulsory)
 Path of jrPaginationHandler.php, you can place it at your preffered location. You can also change the file name or you can copy paste the code from this file to another php file just care the $link variable which holds the mysqli connection. Ex: 
+
 filePath: 'assets/user/contacts/jrPaginationHandler.php<sup><sub>​</sub></sup>
+
 #tableHead
-Provide your own custom table head row. Ex:
+
+Provide your own custom table head row. 
+Ex:
 tableHead : '<tr><th>Id</th><th>Name</th><th>Email</th><th>Contact</th><th>Address</th></tr>'​​
+
 #columnList
 List of columns you want to fetch from the database table.
+Ex:
 columnList: {a: 'id', b: 'name', c: 'contact', d: 'email'}
+
 #listLength
 Length of list, i.e. no. of rows you want to display at a time in the table
+Ex:
 listLength: 15      //Default is 20
+
 #showPageBtn
 no. of page buttons you want to display at a time
+Ex: 
 showPageBtn: 4      //Default is 5
+
 #showLastPage
 User can not see the no. of total pages if set to 'false'
+Ex: 
 showLastPage: false      //Default is 'true'
+
 #rowAddOn
 This parameter can be used to add any new common data column in the rows that is not in the database table. such as delete or edit button.
+Ex:
 rowAddOn: '<td><input type='button' value='Delete' onclick='delete(this);'></td>
+
 #6. Full fledge example: 
 
 $(document).ready(function(){
@@ -72,6 +89,7 @@ $(document).ready(function(){
  
 
 #Points to remember
+
 Don't forget to add jQuery library
 
 It is mendatory to give unique 'id' to each html table
@@ -93,7 +111,6 @@ To edit the current page button
 If you have variable table names for database table (Ex: each user has different table name for the activity log), you can edit jrPaginationHandler.php .
 
 Ex:
-
 //default code
 $tableName=$_POST['dbTableName'];
 
